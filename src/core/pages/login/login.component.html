@@ -1,2 +1,30 @@
-<p>login works!</p>
-<p-button label="Submit" />
+<div class="flex flex-column gap-3 align-items-center justify-content-center h-screen">
+  
+    <div class="w-20rem">
+        <p class="font-bold text-left pl-1">Sign In</p>
+    </div>
+
+
+        <div class="my-5 w-20rem">
+            <p-floatLabel class="w-20rem">
+                <input pInputText id="username" />
+                <label for="username">Username</label>
+            </p-floatLabel>
+        </div>
+
+        
+        <div class="w-20rem">
+            <p-floatLabel class="w-20rem">
+                <p-password  [feedback]="false"></p-password>
+                <label for="password">Password</label>
+            </p-floatLabel>
+        </div>
+
+
+        <div class="my-5 text-center w-20rem">
+            <p-button label="Sign In" class="w-20rem" [rounded]="true"></p-button>
+        </div>
+        
+        
+    </div>
+
