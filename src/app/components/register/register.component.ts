@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import {
-  AbstractControl,
   FormControl,
   FormGroup,
-  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -12,7 +10,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { AlertErrorComponent } from '../../../shared/ui/alert-error/alert-error.component';
-
+import { confirmPassword } from '../../../shared/utilities/confirm-password';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule, AlertErrorComponent],
@@ -31,16 +29,12 @@ export class RegisterComponent {
       rePassword: new FormControl(null),
       phone: new FormControl(null, [Validators.required]),
     },
-    this.confirmPassword
+    confirmPassword
   );
 
 
   
-  confirmPassword(g: AbstractControl) {
-    return g.get('password')?.value == g.get('rePassword')?.value
-      ? null
-      : { mismatch: true };
-  }
+
 
   SendData = () => {
     if (this.register.valid) {
