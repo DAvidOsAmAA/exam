@@ -1,0 +1,26 @@
+
+@if(formName.get(controleName)?.errors && formName.get(controleName)?.touched) {
+<div class="alert alert-danger mt-3">
+  <ul class="m-0">
+    @if(formName.get(controleName)?.getError('required')){
+    <li>Input is required</li>
+    } @if(formName.get(controleName)?.getError('pattern')){
+    <li>Re-Password must be valid</li>
+    }@if(formName.get(controleName)?.getError('email')){
+    <li>please enter valid email address</li>
+    } @if(formName.get(controleName)?.getError('minlength')){
+    <li>user name must be at least 2 character</li>
+    } @if(formName.get(controleName)?.getError('maxlength')){
+    <li>Input must not exceed 20 characters</li>
+    }@if(formName.get(controleName)?.getError('email')){
+    <li>please enter valid email address</li>
+    }
+  </ul>
+</div>
+}@else if(formName.getError('mismatch')&&formName.get(controleName)?.touched&&controleName=="rePassword"){
+  <div class="alert alert-danger mt-3">
+    <ul>
+      <li>re-password must match password </li>
+    </ul>
+  </div>
+}
