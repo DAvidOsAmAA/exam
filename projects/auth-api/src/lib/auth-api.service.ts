@@ -20,14 +20,16 @@ export class AuthApiService implements AuthApi {
   login(data: loignUser): Observable<loginRes|never[]> {
     return this._HttpClient.post(AuthEndPoint.LOGIN,data).pipe(
       map(res=>this._authApiAdaptorService.adapt(res)),
-      catchError(err=>of([]))
     )
   }
 
    register(data: registerUser): Observable<registerRes|never[]> {
-    return this._HttpClient.post(AuthEndPoint.REGISTER,data).pipe(
+    return this._HttpClient.post(AuthEndPoint.REGISTER,data, {
+      headers: {
+        'Content-Type': 'application/json'
+      }}).pipe(
       map(res=>this._RegisterApiAdaptorService.adapt(res)),
-      catchError(err=>of([]))
+      
     )
   }
 }

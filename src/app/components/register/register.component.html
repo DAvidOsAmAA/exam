@@ -1,12 +1,15 @@
 <h2 class="text-bold text-left mb-4 ms-5 mt-5">Sign Up</h2>
 
-<div class="mt-5 ms-5 mb-5 w-75 d-flex justify-content-center align-items-center">
-
+<div
+  class="mt-5 ms-5 mb-5 w-75 d-flex justify-content-center align-items-center"
+>
   <form [formGroup]="register" class="row g-3" (ngSubmit)="SendData()">
-
-
     <div class="form-floating mb-3 w-75">
       <input
+        [ngClass]="{
+          'is-valid': !register.get('username')?.errors && (register.get('username')?.touched||register.get('username')?.dirty),
+          'is-invalid': register.get('username')?.errors&& (register.get('username')?.touched||register.get('username')?.dirty)
+        }"
         type="text"
         formControlName="username"
         id="username"
@@ -14,11 +17,15 @@
         placeholder="User Name"
       />
       <label for="username">User Name</label>
-      <alertError [formName]="register" controleName="username"/>
+      <alertError [formName]="register" controleName="username" />
     </div>
 
     <div class="form-floating mb-3 w-75">
       <input
+      [ngClass]="{
+        'is-valid': !register.get('firstName')?.errors && (register.get('firstName')?.touched||register.get('firstName')?.dirty),
+        'is-invalid': register.get('firstName')?.errors&& (register.get('firstName')?.touched||register.get('firstName')?.dirty)
+      }"
         type="text"
         formControlName="firstName"
         id="firstName"
@@ -26,13 +33,15 @@
         placeholder="First Name"
       />
       <label for="firstName">First Name</label>
-      <alertError [formName]="register" controleName="firstName"/>
-
+      <alertError [formName]="register" controleName="firstName" />
     </div>
-
 
     <div class="form-floating mb-3 w-75">
       <input
+      [ngClass]="{
+        'is-valid': !register.get('lastName')?.errors && (register.get('lastName')?.touched||register.get('lastName')?.dirty),
+        'is-invalid': register.get('lastName')?.errors&& (register.get('lastName')?.touched||register.get('lastName')?.dirty)
+      }"
         type="text"
         formControlName="lastName"
         id="lastName"
@@ -40,12 +49,15 @@
         placeholder="Last Name"
       />
       <label for="lastName">Last Name</label>
-      <alertError [formName]="register" controleName="lastName"/>
-
+      <alertError [formName]="register" controleName="lastName" />
     </div>
 
     <div class="form-floating mb-3 w-75">
       <input
+      [ngClass]="{
+        'is-valid': !register.get('email')?.errors && (register.get('email')?.touched||register.get('email')?.dirty),
+        'is-invalid': register.get('email')?.errors&& (register.get('email')?.touched||register.get('email')?.dirty)
+      }"
         type="email"
         formControlName="email"
         id="email"
@@ -53,12 +65,15 @@
         placeholder="Email"
       />
       <label for="email">Email</label>
-      <alertError [formName]="register" controleName="email"/>
-
+      <alertError [formName]="register" controleName="email" />
     </div>
 
     <div class="form-floating mb-3 w-75">
       <input
+      [ngClass]="{
+        'is-valid': !register.get('password')?.errors && (register.get('password')?.touched||register.get('password')?.dirty),
+        'is-invalid': register.get('password')?.errors&& (register.get('password')?.touched||register.get('password')?.dirty)
+      }"
         type="password"
         formControlName="password"
         id="password"
@@ -66,12 +81,15 @@
         placeholder="Password"
       />
       <label for="password">Password</label>
-      <alertError [formName]="register" controleName="password"/>
-
+      <alertError [formName]="register" controleName="password" />
     </div>
 
     <div class="form-floating mb-3 w-75">
       <input
+      [ngClass]="{
+        'is-valid': !register.get('rePassword')?.errors && (register.get('rePassword')?.touched||register.get('rePassword')?.dirty),
+        'is-invalid': register.get('rePassword')?.errors&& (register.get('rePassword')?.touched||register.get('rePassword')?.dirty)
+      }"
         type="password"
         formControlName="rePassword"
         id="rePassword"
@@ -79,14 +97,16 @@
         placeholder="Re-Password"
       />
       <label for="rePassword">Re-Password</label>
-      <alertError [formName]="register" controleName="rePassword"/>
-
-
+      <alertError [formName]="register" controleName="rePassword" />
     </div>
 
     <div class="form-floating mb-3 w-75">
       <input
-        type="number"
+      [ngClass]="{
+        'is-valid': !register.get('phone')?.errors && (register.get('phone')?.touched||register.get('phone')?.dirty),
+        'is-invalid': register.get('phone')?.errors&& (register.get('phone')?.touched||register.get('phone')?.dirty)
+      }"
+        type="text"
         formControlName="phone"
         id="phone"
         class="form-control"
@@ -96,7 +116,11 @@
     </div>
 
     <div class="col-12 w-75">
-      <button type="submit" [disabled]="register.invalid" class="btn btn-primary p-3 w-100 rounded-pill">
+      <button
+        type="submit"
+        [disabled]="register.invalid"
+        class="btn btn-primary p-3 w-100 rounded-pill"
+      >
         Create Account
       </button>
     </div>
