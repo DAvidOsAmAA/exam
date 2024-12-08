@@ -118,11 +118,18 @@
     <div class="col-12 w-75">
       <button
         type="submit"
-        [disabled]="register.invalid"
+        [disabled]="register.invalid||isLoading"
         class="btn btn-primary p-3 w-100 rounded-pill"
       >
+      @if(!isLoading){
         Create Account
+      }@else {
+        <i class="spinner-border"></i>
+      }
       </button>
     </div>
+   @if (errorMsg != '' ) {
+    <div class="alert alert-danger w-75 ">{{errorMsg}}</div>
+   } 
   </form>
 </div>

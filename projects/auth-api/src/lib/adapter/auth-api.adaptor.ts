@@ -11,7 +11,7 @@ export class AuthApiAdaptorService implements Adapter {
   adapt(data:any):loginRes{
     return {
       message:data.message,
-      token:data.toke,
+      token:data.token,
       userEmail:data.user.email
     }
   }

@@ -1,5 +1,5 @@
 export interface registerRes{
-    message:string,
+    message:string ,
     username: string,
     email:string,
 }
