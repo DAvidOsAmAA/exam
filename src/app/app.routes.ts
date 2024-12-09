@@ -1,13 +1,10 @@
 import { Routes } from '@angular/router';
+import { isLoggedInGuard } from '../core/guards/isloaggedin.guard';
 
 export const routes: Routes = [
   {
-    path: '', 
-    redirectTo: 'auth/login', 
-    pathMatch: 'full',
-  },
-  {
-    path: 'auth',
+   path: '',
+   canActivate:[isLoggedInGuard],
    loadComponent:()=>import('./components/auth/auth.component').then(c=>c.AuthComponent),
     children: [
         {
