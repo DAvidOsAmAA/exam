@@ -1,0 +1,179 @@
+@if(steps==1){
+  <div class="formWithWord" >
+    <h2 class="text-bold text-left mb-4 ms-5 mt-5">Forget Password :</h2>
+    <div class="mt-5 ms-5 mb-5 w-75 d-flex justify-content-center align-items-center">
+    
+      <form [formGroup]="forgotPass" class="row g-3" (ngSubmit)="submiteStep1()">
+    
+    
+        <div class="form-floating mb-3 w-75">
+          <input [ngClass]="{
+            'is-valid': !forgotPass.get('email')?.errors && (forgotPass.get('email')?.touched||forgotPass.get('email')?.dirty),
+            'is-invalid': forgotPass.get('email')?.errors&& (forgotPass.get('email')?.touched||forgotPass.get('email')?.dirty)
+          }"
+            type="email"
+            formControlName="email"
+            id="email"
+            class="form-control"
+            placeholder="Email"
+          />
+          <label for="email">Email</label>
+          <alertError [formName]="forgotPass" controleName="email" />
+        </div>
+    
+    
+    
+    
+    
+    
+        <div class="col-12 d-flex justify-content-center w-75">
+          <button
+            type="submit"
+            [disabled]="forgotPass.invalid||isLoading"
+            class="btn btn-primary p-2 w-50 rounded-pill"
+          >
+          @if(!isLoading){
+            Send Code
+          }@else {
+            <i class="spinner-border"></i>
+          }
+          </button>
+        </div>
+    
+    
+       @if (errorMsg != '' ) {
+        <div class="alert alert-danger w-75 ">{{errorMsg}}</div>
+       } 
+      </form>
+    
+    </div>
+  </div>
+
+}
+
+
+
+
+
+
+@if(steps==2){
+
+  <div class="formWithWord">
+<h2 class="text-bold text-left mb-4 ms-5 mt-5">Verify Reset Code:</h2>
+<div class="mt-5 ms-5 mb-5 w-75 d-flex justify-content-center align-items-center">
+  <form [formGroup]="verifyResetCode" class="row g-3" (ngSubmit)="submiteStep2()">
+
+
+    <div class="form-floating mb-3 w-75">
+      <input [ngClass]="{
+        'is-valid': !verifyResetCode.get('resetCode')?.errors && (verifyResetCode.get('resetCode')?.touched||verifyResetCode.get('resetCode')?.dirty),
+        'is-invalid': verifyResetCode.get('resetCode')?.errors&& (verifyResetCode.get('resetCode')?.touched||verifyResetCode.get('resetCode')?.dirty)
+      }"
+        type="text"
+        formControlName="resetCode"
+        id="resetCode"
+        class="form-control"
+        placeholder="resetCode"
+      />
+      <label for="resetCode">resetCode</label>
+      <alertError [formName]="verifyResetCode" controleName="resetCode" />
+    </div>
+
+
+
+    <div class="col-12 d-flex justify-content-center w-75">
+      <button
+        type="submit"
+        [disabled]="verifyResetCode.invalid||isLoading"
+        class="btn btn-primary p-2 w-50 rounded-pill"
+      >
+      @if(!isLoading){
+        Verify
+      }@else {
+        <i class="spinner-border"></i>
+      }
+      </button>
+    </div>
+
+
+   @if (errorMsg != '' ) {
+    <div class="alert alert-danger w-75 ">{{errorMsg}}</div>
+   } 
+  </form>
+  </div>
+</div>
+}
+
+
+
+
+
+
+
+
+
+
+@if(steps==3){
+  <div class="formWithWord">
+
+  <h2 class="text-bold text-left mb-4 ms-5 mt-5">Reset Password:</h2>
+  <div class="mt-5 ms-5 mb-5 w-75 d-flex justify-content-center align-items-center">
+  <form [formGroup]="resetPassword" class="row g-3"(ngSubmit)="submiteStep3()" >
+    <div class="form-floating mb-3 w-75">
+      <input [ngClass]="{
+        'is-valid': !resetPassword.get('email')?.errors && (resetPassword.get('email')?.touched||resetPassword.get('email')?.dirty),
+        'is-invalid': resetPassword.get('email')?.errors&& (resetPassword.get('email')?.touched||resetPassword.get('email')?.dirty)
+      }"
+        type="email"
+        formControlName="email"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+      />
+      <label for="email">Email</label>
+      <alertError [formName]="resetPassword" controleName="email" />
+    </div>
+
+    <div class="form-floating mb-3 w-75">
+      <input
+      [ngClass]="{
+        'is-valid': !resetPassword.get('newPassword')?.errors && (resetPassword.get('newPassword')?.touched||resetPassword.get('newPassword')?.dirty),
+        'is-invalid': resetPassword.get('newPassword')?.errors&& (resetPassword.get('newPassword')?.touched||resetPassword.get('newPassword')?.dirty)
+      }"
+        type="password"
+        formControlName="password"
+        id="password"
+        class="form-control"
+        placeholder="Password"
+      />
+      <label for="password">New Password</label>
+      <alertError [formName]="resetPassword" controleName="password" />
+    </div>
+
+
+
+
+    <div class="col-12 d-flex justify-content-center w-75">
+      <button
+        type="submit"
+        [disabled]="resetPassword.invalid||isLoading"
+        class="btn btn-primary p-2 w-50 rounded-pill"
+      >
+      @if(!isLoading){
+        Reset Password
+      }@else {
+        <i class="spinner-border"></i>
+      }
+      </button>
+    </div>
+
+
+   @if (errorMsg != '' ) {
+    <div class="alert alert-danger w-75 ">{{errorMsg}}</div>
+   } 
+  </form>
+</div>
+  </div>
+}
+
+

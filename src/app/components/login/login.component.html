@@ -40,11 +40,11 @@
 
 
 
-    <div class="col-12 w-75">
+    <div class="col-12 d-flex justify-content-center w-75">
       <button
         type="submit"
         [disabled]="login.invalid||isLoading"
-        class="btn btn-primary p-3 w-100 rounded-pill"
+        class="btn btn-primary p-3 w-50 rounded-pill"
       >
       @if(!isLoading){
         login
@@ -53,6 +53,9 @@
       }
       </button>
     </div>
+    <a routerLink="/forget-password" class="link-primary">Forgot password?</a>
+
+
    @if (errorMsg != '' ) {
     <div class="alert alert-danger w-75 ">{{errorMsg}}</div>
    } 

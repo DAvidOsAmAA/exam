@@ -2,16 +2,15 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AlertErrorComponent } from "../../../shared/ui/alert-error/alert-error.component";
 import { HttpErrorResponse } from '@angular/common/http';
-import { registerUser } from '../../../../dist/auth-api/lib/interfaces/register';
 import { signupValidator } from '../../../shared/validators/register.validator';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthApiService } from 'auth-api';
 import { NgClass } from '@angular/common';
 import { loignUser } from '../../../../dist/auth-api/lib/interfaces/login';
 @Component({
   selector: 'app-login',
   imports: [
-    ReactiveFormsModule, AlertErrorComponent, NgClass
+    ReactiveFormsModule, AlertErrorComponent, NgClass,RouterLink
 ],
   standalone: true,
   templateUrl: './login.component.html',
